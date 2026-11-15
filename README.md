@@ -22,24 +22,6 @@ One static page, written in a single JSON file, with no framework and no build s
 
 </div>
 
-## Editing
-
-- **Website.** Everything the page shows lives in `content.json`: the intro, about, experience, education and links.
-- **CV.** Edit `cv/cv.tex`, then rebuild the PDF the site links to:
-
-```bash
-brew install tectonic   # once
-tools/build-cv
-```
-
-## Preview
-
-```bash
-tools/preview
-```
-
-Opens the site on `http://localhost:8000`. It needs a local server because the page reads `content.json`.
-
 <br>
 
 <p align="center"><sub>Made by João Oliveira</sub></p>
