@@ -1,0 +1,6 @@
+#!/bin/zsh
+# Compiles cv/cv.tex into cv/cv.pdf. Needs Tectonic: brew install tectonic
+set -euo pipefail
+cd "${0:A:h}/../cv"
+tectonic cv.tex
+echo "Built cv/cv.pdf"

@@ -1,0 +1,84 @@
+{
+  "name": "João Oliveira",
+  "title": "Software Engineer",
+  "location": "Porto, Portugal",
+  "tagline": "Backend engineer at Teya. MSc in Informatics and Computing Engineering from the University of Porto.",
+  "current": {
+    "role": "Software Engineer",
+    "company": "Teya",
+    "logo": { "light": "assets/logos/teya.svg", "dark": "assets/logos/teya-dark.svg" },
+    "since": "Dec 2025",
+    "summary": "Building the infrastructure behind Teya's supply chain."
+  },
+  "highlights": [
+    { "value": "18/20", "label": "MSc grade, FEUP" },
+    { "value": "3+", "label": "Years building software" }
+  ],
+  "skills": ["Java", "Spring", "Kafka", "PostgreSQL", "Python", "Machine learning", "Docker", "REST APIs", "React", "Angular"],
+  "about": [
+    "I am passionate about creating things that matter.",
+    "At INESC TEC, I spent a year and a half building personalised mental health support, working closely with therapists and the real patients it was meant to help. It taught me that the most rewarding engineering sits close to real people.",
+    "Today I am at Teya, building the systems that get terminals into merchants' hands. Behind every order is someone opening a café, a salon or a small shop, and a mistake on our side can leave them unable to serve their first customer."
+  ],
+  "experience": [
+    {
+      "company": "Teya",
+      "role": "Software Engineer",
+      "start": "Dec 2025",
+      "end": "Present",
+      "points": [
+        "Part of the Supply Chain team, building Teya's **order management** and **asset management** systems, the source of truth for every payment terminal across its lifecycle, from the warehouse to the merchant. Together they serve **hundreds of thousands of requests a day**.",
+        "Working with warehouse and field-service partners so every order and every device stays in sync, wherever it is.",
+        "Helping our services handle failure gracefully, so they can recover when something goes wrong."
+      ]
+    },
+    {
+      "company": "INESC TEC",
+      "role": "Software Engineer",
+      "start": "Jun 2024",
+      "end": "Nov 2025",
+      "points": [
+        "Integrating **Federated Learning** with Reinforcement Learning for secure, decentralised AI model training that protects sensitive healthcare data.",
+        "Developed adaptive **Reinforcement Learning** models that tailor digital micro-interventions to individual needs and behaviours.",
+        "Researched how to train and deploy machine learning models across decentralised healthcare data while keeping privacy, efficiency and scalability."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "school": "Faculty of Engineering of the University of Porto",
+      "degree": "Master's in Informatics and Computing Engineering",
+      "start": "Sep 2023",
+      "end": "Jun 2025",
+      "location": "Porto, Portugal",
+      "grade": "18.0/20",
+      "thesis": {
+        "title": "Federated Reinforcement Learning for Personalised Mental Health Interventions",
+        "url": "https://repositorio-aberto.up.pt/bitstream/10216/169640/2/742903.pdf"
+      }
+    },
+    {
+      "school": "University of Łódź, Faculty of Mathematics and Computer Science",
+      "degree": "Master's in Computer Science, Erasmus+",
+      "start": "Oct 2024",
+      "end": "Feb 2025",
+      "location": "Łódź, Poland",
+      "grade": "5.0/5.0"
+    },
+    {
+      "school": "Faculty of Engineering of the University of Porto",
+      "degree": "Bachelor's in Informatics and Computing Engineering",
+      "start": "Sep 2020",
+      "end": "Jun 2023",
+      "location": "Porto, Portugal",
+      "grade": "16.0/20"
+    }
+  ],
+  "contact": "If you are building something that matters, or simply want to talk engineering, I would be glad to hear from you.",
+  "email": "jlp.oliveira02@gmail.com",
+  "links": [
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/oliveira002/" },
+    { "label": "GitHub", "url": "https://github.com/oliveira002" }
+  ],
+  "cv": "cv/cv.pdf"
+}

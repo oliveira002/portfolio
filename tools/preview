@@ -1,0 +1,8 @@
+#!/bin/zsh
+# Serves the site locally and opens it. The pages load content.json, which browsers only allow over http.
+set -euo pipefail
+cd "${0:A:h}/.."
+port=8000
+echo "Site: http://localhost:$port   (Ctrl-C to stop)"
+open "http://localhost:$port" &
+python3 -m http.server "$port" --bind 127.0.0.1
