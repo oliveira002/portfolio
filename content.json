@@ -28,8 +28,8 @@
       "end": "Present",
       "points": [
         "Supply Chain team, building Teya's in-house **order management** and **asset management** platforms: the source of truth for every payment terminal across its lifecycle, from warehouse to merchant, handling **hundreds of thousands of requests a day**.",
-        "Migrating Teya's markets from **third-party systems** to the in-house platforms, keeping data consistent and merchant orders flowing throughout.",
-        "Building **event-driven integrations** with warehouse and field-service partners, keeping order and device state **consistent across distributed systems**.",
+        "Migrating each country's supply chain operations from **third-party tools** to the in-house platforms, without disrupting merchant orders.",
+        "Building **event-driven integrations** with warehouse and field-service partners, keeping order and device state in sync across systems.",
         "Improving **fault tolerance** with failure handling and recovery mechanisms, so services recover automatically from partial failures."
       ]
     },
