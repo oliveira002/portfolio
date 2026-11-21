@@ -78,6 +78,22 @@ document.querySelectorAll('.section h2, .prose, .timeline > li, .school, .contac
   reveal.observe(element);
 });
 
+// Local time in Porto, so visitors know when a reply is likely.
+const clock = document.getElementById('clock');
+const portoTime = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Lisbon', hour: '2-digit', minute: '2-digit' });
+const tick = () => { clock.textContent = portoTime.format(new Date()); };
+tick();
+setInterval(tick, 15000);
+
+// Highlights the nav link of the section on screen.
+const navLinks = new Map([...document.querySelectorAll('nav a')].map(link => [link.getAttribute('href').slice(1), link]));
+const spy = new IntersectionObserver(entries => entries.forEach(entry => {
+  if (!entry.isIntersecting) return;
+  navLinks.forEach(link => link.classList.remove('active'));
+  navLinks.get(entry.target.id)?.classList.add('active');
+}), { rootMargin: '-45% 0px -50% 0px' });
+navLinks.forEach((_, id) => { const section = document.getElementById(id); if (section) spy.observe(section); });
+
 document.getElementById('contact-links').innerHTML = (content.links ?? []).map(link =>
   `<a class="pill" href="${escape(link.url)}">${escape(link.label)}</a>`
 ).join('');

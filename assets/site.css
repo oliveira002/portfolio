@@ -48,6 +48,8 @@ nav a { position: relative; text-decoration: none; color: var(--muted); transiti
 nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
 nav a:hover { color: var(--ink); }
 nav a:hover::after { transform: scaleX(1); }
+nav a.active { color: var(--ink); }
+nav a.active::after { transform: scaleX(1); }
 .theme { display: grid; place-items: center; width: 34px; height: 34px; flex: none; padding: 0; border-radius: 50%; border: 1px solid var(--rule); background: var(--card); color: var(--ink); cursor: pointer; transition: border-color .2s; }
 .theme:hover { border-color: var(--ink); }
 .theme .moon, :root[data-theme="dark"] .theme .sun { display: none; }
@@ -62,6 +64,9 @@ nav a:hover::after { transform: scaleX(1); }
 /* Hero */
 .hero { display: grid; grid-template-columns: 1fr 320px; gap: 56px; align-items: end; padding-top: 104px; padding-bottom: 56px; }
 .where { display: inline-flex; align-items: center; gap: 8px; margin: 0; font-size: 14px; color: var(--muted); }
+.clock { font-variant-numeric: tabular-nums; }
+.clock:empty { display: none; }
+.clock::before { content: "·"; margin-right: 8px; color: var(--faint); }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--tint); }
 h1 { font: 400 clamp(52px, 8.5vw, 100px)/.95 var(--serif); letter-spacing: -.035em; margin: 22px 0 0; }
 .role { font: italic 400 clamp(24px, 3vw, 32px)/1.2 var(--serif); color: var(--accent); margin: 12px 0 0; }
@@ -71,6 +76,8 @@ h1 { font: 400 clamp(52px, 8.5vw, 100px)/.95 var(--serif); letter-spacing: -.035
 .pill:hover { border-color: var(--ink); }
 .pill.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 .now { padding: 24px; border: 1px solid var(--rule); border-radius: 18px; background: var(--card); }
+.now { transition: translate .4s cubic-bezier(.2, .7, .2, 1), border-color .4s; }
+.now:hover { translate: 0 -3px; border-color: var(--faint); }
 .now .label { margin: 0 0 14px; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
 .now h3 { font: 400 24px/1.2 var(--serif); letter-spacing: -.01em; }
 .logo { height: 30px; width: auto; }
@@ -95,6 +102,9 @@ h1 { font: 400 clamp(52px, 8.5vw, 100px)/.95 var(--serif); letter-spacing: -.035
 .ticker { overflow: hidden; margin: 48px 0 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
 .ticker ul { display: flex; width: max-content; margin: 0; padding: 0; list-style: none; animation: ticker 50s linear infinite; }
 .ticker li { padding: 0 22px; font: italic 400 22px/1.6 var(--serif); color: var(--muted); white-space: nowrap; }
+.ticker:hover ul { animation-play-state: paused; }
+.ticker li { transition: color .3s; }
+.ticker li:hover { color: var(--ink); }
 .ticker li::after { content: "·"; margin-left: 44px; color: var(--faint); font-style: normal; }
 @keyframes ticker { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .ticker ul { animation: none; } }
@@ -113,6 +123,8 @@ h3 { font-size: 18px; font-weight: 600; margin: 0; letter-spacing: -.01em; }
 .timeline > li { position: relative; padding: 0 0 44px 36px; }
 .timeline > li:last-child { padding-bottom: 0; }
 .timeline > li::before { content: ""; position: absolute; left: 5px; top: 18px; bottom: -6px; width: 1px; background: var(--rule); }
+.timeline > li.reveal::before { transform: scaleY(0); transform-origin: top; transition: transform 1.2s cubic-bezier(.2, .7, .2, 1) .3s; }
+.timeline > li.reveal.in::before { transform: scaleY(1); }
 .timeline > li:last-child::before { display: none; }
 .timeline > li::after { content: ""; position: absolute; left: 0; top: 5px; width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid var(--faint); background: var(--paper); box-sizing: border-box; }
 .timeline > li.current::after { border-color: var(--accent); background: var(--accent); box-shadow: 0 0 0 4px var(--tint); }
