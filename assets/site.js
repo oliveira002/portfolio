@@ -16,64 +16,62 @@ if (content.cv) document.getElementById('cv-top').href = content.cv;
 
 const now = content.current;
 document.getElementById('now').innerHTML = now ? `
-  <p class="label">Currently</p>
+  <p class="now-label">Currently</p>
   ${now.logo ? `
   <img class="logo logo-light" src="${escape(now.logo.light)}" alt="${escape(now.company)}">
   <img class="logo logo-dark" src="${escape(now.logo.dark)}" alt="" aria-hidden="true">` : `<h3>${escape(now.company)}</h3>`}
-  <p class="when">${escape(now.role)} · since ${escape(now.since)}</p>
+  <p class="now-role">${escape(now.role)}</p>
+  <p class="now-since">Since ${escape(now.since)}</p>
   <p class="now-text">${escape(now.summary)}</p>` : '';
-
-document.getElementById('highlights').innerHTML = (content.highlights ?? []).map(item =>
-  `<div><dt>${escape(item.value)}</dt><dd>${escape(item.label)}</dd></div>`
-).join('');
-
-// Rendered twice so the strip can loop without a gap.
-const skills = (content.skills ?? []).map(skill => `<li>${escape(skill)}</li>`).join('');
-document.getElementById('ticker').innerHTML = skills + skills.replaceAll('<li>', '<li aria-hidden="true">');
 
 document.getElementById('about-text').innerHTML = (content.about ?? []).map(paragraph =>
   `<p>${rich(paragraph)}</p>`
 ).join('');
 
-document.getElementById('timeline').innerHTML = (content.experience ?? []).map(job => `
-  <li class="${job.end === 'Present' ? 'current' : ''}">
+document.getElementById('skills').innerHTML = (content.skills ?? []).map(skill =>
+  `<span>${escape(skill)}</span>`
+).join('');
+
+document.getElementById('jobs').innerHTML = (content.experience ?? []).map(job => `
+  <li>
     <p class="when">${escape(period(job))}</p>
-    <h3>${escape(job.role)} <span>· ${escape(job.company)}</span></h3>
-    ${job.summary ? `<p class="job-summary">${rich(job.summary)}</p>` : ''}
-    <ul>${(job.points ?? []).map(point => `<li>${rich(point)}</li>`).join('')}</ul>
+    <div>
+      <h3>${escape(job.company)}</h3>
+      <p class="sub">${escape(job.role)}</p>
+      ${job.summary ? `<p class="job-summary">${rich(job.summary)}</p>` : ''}
+      <ul>${(job.points ?? []).map(point => `<li>${rich(point)}</li>`).join('')}</ul>
+    </div>
   </li>`
 ).join('');
 
 document.getElementById('schools').innerHTML = (content.education ?? []).map(school => `
-  <article class="school">
-    <div class="school-head">
-      <div>
-        <p class="when">${escape(period(school))}${school.location ? ` · ${escape(school.location)}` : ''}</p>
-        <h3>${escape(school.degree)}</h3>
-        <p>${escape(school.school)}</p>
-      </div>
-      ${school.grade ? `<p class="grade">${escape(school.grade)}</p>` : ''}
+  <li>
+    <p class="when">${escape(period(school))}</p>
+    <div>
+      <h3>${escape(school.degree)}</h3>
+      <p class="sub">${escape(school.school)}${school.location ? `, ${escape(school.location)}` : ''}</p>
+      ${school.grade ? `<p class="grade">Grade ${escape(school.grade)}</p>` : ''}
+      ${school.thesis ? `<p class="thesis">Thesis: <a href="${escape(school.thesis.url)}">${escape(school.thesis.title)}</a></p>` : ''}
     </div>
-    ${school.thesis ? `
-    <a class="thesis" href="${escape(school.thesis.url)}">
-      <span class="label">Thesis</span>
-      <i>${escape(school.thesis.title)}</i>
-      <span class="read">Read the thesis ↗</span>
-    </a>` : ''}
-  </article>`
+  </li>`
 ).join('');
 
 const email = document.getElementById('email');
 email.textContent = content.email ?? '';
 email.href = content.email ? `mailto:${content.email}` : '#';
 
-// Fades sections in as they scroll into view; content stays visible if this never runs.
+const contactLinks = [...(content.links ?? []), content.cv && { label: 'CV (PDF)', url: content.cv }].filter(Boolean);
+document.getElementById('contact-links').innerHTML = contactLinks.map(link =>
+  `<a href="${escape(link.url)}"><span>${escape(link.label)}</span><span class="arrow" aria-hidden="true">↗</span></a>`
+).join('');
+
+// Fades each block in as it scrolls into view; content stays visible if this never runs.
 const reveal = new IntersectionObserver(entries => entries.forEach(entry => {
   if (!entry.isIntersecting) return;
   entry.target.classList.add('in');
   reveal.unobserve(entry.target);
-}), { rootMargin: '0px 0px -8% 0px' });
-document.querySelectorAll('.section h2, .prose, .timeline > li, .school, .contact').forEach(element => {
+}), { rootMargin: '0px 0px -10% 0px' });
+document.querySelectorAll('.section h2, .prose, .skills, .rows > li, .contact > *').forEach(element => {
   element.classList.add('reveal');
   reveal.observe(element);
 });
@@ -84,16 +82,3 @@ const portoTime = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Lisbon', 
 const tick = () => { clock.textContent = portoTime.format(new Date()); };
 tick();
 setInterval(tick, 15000);
-
-// Highlights the nav link of the section on screen.
-const navLinks = new Map([...document.querySelectorAll('nav a')].map(link => [link.getAttribute('href').slice(1), link]));
-const spy = new IntersectionObserver(entries => entries.forEach(entry => {
-  if (!entry.isIntersecting) return;
-  navLinks.forEach(link => link.classList.remove('active'));
-  navLinks.get(entry.target.id)?.classList.add('active');
-}), { rootMargin: '-45% 0px -50% 0px' });
-navLinks.forEach((_, id) => { const section = document.getElementById(id); if (section) spy.observe(section); });
-
-document.getElementById('contact-links').innerHTML = (content.links ?? []).map(link =>
-  `<a class="pill" href="${escape(link.url)}">${escape(link.label)}</a>`
-).join('');
