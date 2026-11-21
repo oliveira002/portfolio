@@ -27,9 +27,10 @@
       "start": "Dec 2025",
       "end": "Present",
       "points": [
-        "Part of the Supply Chain team, building Teya's **order management** and **asset management** systems, the source of truth for every payment terminal across its lifecycle, from the warehouse to the merchant. Together they serve **hundreds of thousands of requests a day**.",
-        "Working with warehouse and field-service partners so every order and every device stays in sync, wherever it is.",
-        "Helping our services handle failure gracefully, so they can recover when something goes wrong."
+        "Supply Chain team, building Teya's in-house **order management** and **asset management** platforms: the source of truth for every payment terminal across its lifecycle, from warehouse to merchant, handling **hundreds of thousands of requests a day**.",
+        "Migrating Teya's markets from **third-party systems** to the in-house platforms, keeping data consistent and merchant orders flowing throughout.",
+        "Building **event-driven integrations** with warehouse and field-service partners, keeping order and device state **consistent across distributed systems**.",
+        "Improving **fault tolerance** with failure handling and recovery mechanisms, so services recover automatically from partial failures."
       ]
     },
     {
