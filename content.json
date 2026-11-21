@@ -4,7 +4,7 @@
   "location": "Porto, Portugal",
   "tagline": "Backend engineer at Teya. MSc in Informatics and Computing Engineering from the University of Porto.",
   "current": {
-    "role": "Software Engineer",
+    "role": "Junior Software Engineer",
     "company": "Teya",
     "logo": { "light": "assets/logos/teya.svg", "dark": "assets/logos/teya-dark.svg" },
     "since": "Dec 2025",
@@ -23,7 +23,7 @@
   "experience": [
     {
       "company": "Teya",
-      "role": "Software Engineer",
+      "role": "Junior Software Engineer",
       "start": "Dec 2025",
       "end": "Present",
       "points": [
