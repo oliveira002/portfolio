@@ -1,7 +1,8 @@
 #!/bin/zsh
-# Serves the site locally and opens it. The pages load content.json, which browsers only allow over http.
+# Rebuilds index.html, then serves the site locally and opens it.
 set -euo pipefail
 cd "${0:A:h}/.."
+node tools/build-site.mjs
 port=8000
 echo "Site: http://localhost:$port   (Ctrl-C to stop)"
 open "http://localhost:$port" &

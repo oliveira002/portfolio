@@ -24,12 +24,12 @@ one page, one content file, no framework.</p>
 
 ## What's inside
 
-- **Website.** A single page that reads all of its text from `content.json`.
+- **Website.** A single page built from `content.json` by `tools/build-site.mjs`.
 - **CV.** Written in LaTeX in `cv/cv.tex`, with the PDF next to it.
 
 ## Updating
 
-Change the words in `content.json` and the site follows. For the CV, edit `cv/cv.tex` and run `tools/build-cv` to refresh the PDF.
+Change the words in `content.json` and push; a GitHub Action rebuilds `index.html`. Run `tools/preview` to see it locally first. For the CV, edit `cv/cv.tex` and run `tools/build-cv` to refresh the PDF.
 
 <br>
 

@@ -1,0 +1,30 @@
+name: Build site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - content.json
+      - tools/index.template.html
+      - tools/build-site.mjs
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: node tools/build-site.mjs
+      - name: Commit index.html if it changed
+        run: |
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: rebuild index.html"
+          git push
