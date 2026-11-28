@@ -65,6 +65,8 @@ document.getElementById('contact-links').innerHTML = contactLinks.map(link =>
   `<a href="${escape(link.url)}"><span>${escape(link.label)}</span><span class="arrow" aria-hidden="true">↗</span></a>`
 ).join('');
 
+document.documentElement.classList.add('ready');
+
 // Fades each block in as it scrolls into view; content stays visible if this never runs.
 const reveal = new IntersectionObserver(entries => entries.forEach(entry => {
   if (!entry.isIntersecting) return;
