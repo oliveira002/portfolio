@@ -1,0 +1,130 @@
+<!doctype html>
+<!-- Generated from tools/index.template.html by tools/build-site.mjs. Edit those, not this file. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>João Oliveira · Software Engineer</title>
+<meta name="description" content="João Oliveira, software engineer in Porto.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>document.documentElement.classList.add('js'); try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
+</head>
+<body>
+<header class="band" id="top">
+  
+  <div class="wrap top">
+    <a class="mark" href="#top">João Oliveira</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+      <a id="cv-top" href="cv/cv.pdf">CV</a>
+    </nav>
+    <button class="theme" id="theme" type="button" aria-label="Switch light or dark mode"><svg class="sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
+  </div>
+  <div class="wrap hero">
+    <div class="hero-main">
+      <p class="meta"><span>Porto, Portugal</span><span class="clock" id="clock"></span></p>
+      <h1>João Oliveira</h1>
+      <p class="title">Software Engineer</p>
+      <p class="tagline">Backend engineer at Teya. MSc in Informatics and Computing Engineering from the University of Porto.</p>
+    </div>
+    <aside class="now">
+      <p class="now-label">Currently</p>
+      <img class="logo logo-light" src="assets/logos/teya.svg" alt="Teya">
+      <img class="logo logo-dark" src="assets/logos/teya-dark.svg" alt="" aria-hidden="true">
+      <p class="now-role">Junior Software Engineer</p>
+      <p class="now-since">Since Dec 2025</p>
+      <p class="now-text">Building the infrastructure behind Teya&#39;s supply chain.</p>
+    </aside>
+  </div>
+</header>
+
+<main>
+  <section class="wrap section" id="about">
+    <h2 class="reveal">About</h2>
+    <div>
+      <div class="prose reveal"><p>I am passionate about creating things that matter.</p><p>At INESC TEC, I spent a year and a half building personalised mental health support, working closely with therapists and the real patients it was meant to help. It taught me that the most rewarding engineering sits close to real people.</p><p>Today I am at Teya, building the systems that get terminals into merchants&#39; hands. Behind every order is someone opening a café, a salon or a small shop, and a mistake on our side can leave them unable to serve their first customer.</p></div>
+      <p class="skills reveal"><span>Java</span><span>Spring</span><span>Kafka</span><span>PostgreSQL</span><span>Python</span><span>Machine learning</span><span>Docker</span><span>REST APIs</span><span>React</span><span>Angular</span></p>
+    </div>
+  </section>
+
+  <section class="wrap section" id="experience">
+    <h2 class="reveal">Experience</h2>
+    <ol class="rows" id="jobs">
+      <li class="reveal">
+        <p class="when">Dec 2025 – Present</p>
+        <div>
+          <h3>Teya</h3>
+          <p class="sub">Junior Software Engineer</p>
+          
+          <ul><li>Building Teya&#39;s <b>order management</b> and <b>asset management</b> platforms from scratch: the source of truth for every payment terminal across its lifecycle, from warehouse to merchant, handling <b>hundreds of thousands of requests a day</b>.</li><li>Migrating each country&#39;s supply chain operations from <b>third-party tools</b> to the in-house platforms, without disrupting merchant orders.</li><li>Building <b>event-driven integrations</b> with warehouse and field-service partners, keeping order and device state in sync across systems.</li><li>Improving <b>fault tolerance</b> with failure handling and recovery mechanisms, so services recover automatically from partial failures.</li></ul>
+        </div>
+      </li>
+      <li class="reveal">
+        <p class="when">Jun 2024 – Nov 2025</p>
+        <div>
+          <h3>INESC TEC</h3>
+          <p class="sub">Software Engineer</p>
+          
+          <ul><li>Integrating <b>Federated Learning</b> with Reinforcement Learning for secure, decentralised AI model training that protects sensitive healthcare data.</li><li>Developed adaptive <b>Reinforcement Learning</b> models that tailor digital micro-interventions to individual needs and behaviours.</li><li>Researched how to train and deploy machine learning models across decentralised healthcare data while keeping privacy, efficiency and scalability.</li></ul>
+        </div>
+      </li></ol>
+  </section>
+
+  <section class="wrap section" id="education">
+    <h2 class="reveal">Education</h2>
+    <ol class="rows">
+      <li class="reveal">
+        <p class="when">Sep 2023 – Jun 2025</p>
+        <div>
+          <h3>Master&#39;s in Informatics and Computing Engineering</h3>
+          <p class="sub">Faculty of Engineering of the University of Porto, Porto, Portugal</p>
+          <p class="grade">Grade 18.0/20</p>
+          <p class="thesis">Thesis: <a href="https://repositorio-aberto.up.pt/bitstream/10216/169640/2/742903.pdf">Federated Reinforcement Learning for Personalised Mental Health Interventions</a></p>
+        </div>
+      </li>
+      <li class="reveal">
+        <p class="when">Oct 2024 – Feb 2025</p>
+        <div>
+          <h3>Master&#39;s in Computer Science, Erasmus+</h3>
+          <p class="sub">University of Łódź, Faculty of Mathematics and Computer Science, Łódź, Poland</p>
+          <p class="grade">Grade 5.0/5.0</p>
+          
+        </div>
+      </li>
+      <li class="reveal">
+        <p class="when">Sep 2020 – Jun 2023</p>
+        <div>
+          <h3>Bachelor&#39;s in Informatics and Computing Engineering</h3>
+          <p class="sub">Faculty of Engineering of the University of Porto, Porto, Portugal</p>
+          <p class="grade">Grade 16.0/20</p>
+          
+        </div>
+      </li></ol>
+  </section>
+</main>
+
+<footer class="band band-end" id="contact">
+  
+  <div class="wrap contact">
+    <div class="contact-intro reveal">
+      <h2>Say hello</h2>
+      <p class="contact-text">If you are building something that matters, or simply want to talk engineering, I would be glad to hear from you.</p>
+    </div>
+    <div class="contact-list reveal">
+      <a class="email" href="mailto:jlp.oliveira02@gmail.com">jlp.oliveira02@gmail.com</a>
+      <p class="links"><a href="https://www.linkedin.com/in/oliveira002/"><span>LinkedIn</span><span class="arrow" aria-hidden="true">↗</span></a><a href="https://github.com/oliveira002"><span>GitHub</span><span class="arrow" aria-hidden="true">↗</span></a><a href="cv/cv.pdf"><span>CV (PDF)</span><span class="arrow" aria-hidden="true">↗</span></a></p>
+    </div>
+    <p class="foot reveal">© <span id="year"></span> João Oliveira, Porto</p>
+  </div>
+</footer>
+
+<script type="module" src="assets/site.js"></script>
+</body>
+</html>
